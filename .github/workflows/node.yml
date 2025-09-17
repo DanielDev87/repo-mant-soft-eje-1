@@ -1,0 +1,34 @@
+name: Nodejs CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+        
+      - name: Instalar dependencias
+        run: npm install jest --save-dev
+
+      - name: Ejecutar pruebas
+        run: npx jest
+
+      
+
+          
+
+      
+      
+    
